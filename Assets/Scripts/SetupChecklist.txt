@@ -1,0 +1,48 @@
+============================
+SETUP CHECKLIST BOARD GAME
+============================
+
+1. TẠO CÁC SPOT TRÊN MAP
+------------------------
+- Thêm các GameObject (Spot) vào scene, gắn script Spot.cs.
+- Set đúng SpotType (Normal, Spawn, Branch, DirectionChoice, DeadEnd, Goal) cho từng Spot.
+- Kéo ref các Spot tiếp theo vào list nextSpots (bằng tay, theo hướng đi trên map).
+
+2. MAP MANAGER
+--------------
+- Thêm 1 GameObject (MapManager), gắn script MapManager.cs.
+- Không cần kéo ref gì, MapManager sẽ tự động tìm tất cả Spot trên scene.
+
+3. PLAYER PREFAB
+----------------
+- Tạo 1 GameObject (Player), gắn script PlayerController.cs.
+- Set moveSpeed nếu muốn.
+- Tạo prefab cho Player (kéo vào folder Prefabs nếu muốn).
+
+4. DICE ROLLER
+--------------
+- Thêm 1 GameObject (DiceRoller), gắn script DiceRoller.cs.
+
+5. UI MANAGER
+-------------
+- Tạo Canvas, thêm TMP_Text để hiển thị kết quả xúc xắc.
+- Thêm Button để roll dice.
+- Gắn script UIManager.cs vào 1 GameObject (có thể là Canvas).
+- Kéo TMP_Text và Button vào các trường diceResultText, rollButton của UIManager.
+
+6. GAME MANAGER
+---------------
+- Thêm 1 GameObject (GameManager), gắn script GameManager.cs.
+- Kéo Player Prefab, DiceRoller, UIManager vào các trường tương ứng của GameManager.
+
+7. CHẠY THỬ
+-----------
+- Khi bấm Button, Player sẽ roll dice và di chuyển đúng số bước, không đi lùi, dừng ở DeadEnd hoặc Goal.
+- Nếu muốn chọn nhánh khi tới Branch/DirectionChoice, có thể mở rộng UI sau.
+
+LƯU Ý:
+------
+- Tất cả ref giữa các component (trừ Spot kéo tay) đều auto load.
+- Code đã tách rõ ràng, dễ mở rộng cho nhiều Player, nhiều loại Spot, v.v.
+
+Nếu có lỗi hoặc cần mở rộng gì, hãy nhắn lại cho AI nhé! 
